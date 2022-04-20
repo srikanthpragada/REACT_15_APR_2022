@@ -1,0 +1,26 @@
+<html>
+ <style>
+   
+   div.main {
+     display : flex;   /* flex container */
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;      /* vertical alignment */
+     background-color: blue;
+     height: 200px;
+   }
+   /* flex items */
+   div.d  {
+       width:200px;
+       height : 100px;
+       margin : 10px;
+       background-color: lightgray;
+   }
+ </style>
+<body>
+   <div class="main">
+    <div class="d">First</div>
+    <div class="d" style="align-self : stretch;">Second</div>
+  </div>
+    
+</html>
