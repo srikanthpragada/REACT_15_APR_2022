@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateName() {
+            var tname  = document.getElementById("txtName")
+            for (let c of tname.value) {
+                code = c.charCodeAt(0)
+                if( ! (code >= 65 && code <= 90 ||
+                       code >= 97 && code <= 122 || code === 32) )
+                    {
+                        alert("Invalid name!");
+                        return;
+                    }
+            }
+            alert("Valid Name!")
+        }
+    </script>
+</head>
+<body>
+    <h1>Validate Name</h1>
+    Name : <input type="text"  id="txtName" />
+    <button onClick="validateName()">Validate</button>
+
+    
+</body>
+</html>
