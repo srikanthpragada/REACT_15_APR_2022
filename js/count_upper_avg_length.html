@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Upper and Avg Length</title>
+    <script>
+        function countUpper() {
+            var tname  = document.getElementById("text1")
+
+            var count = 0;
+            for (let c of tname.value) {
+                code = c.charCodeAt(0)   // get ascii code 
+                if(code >= 65 && code <= 90)  // if uppercase letter 
+                   count ++;
+            }
+            alert(count)
+        }
+
+        function avgLength()
+        {
+            var tname  = document.getElementById("text1")
+            var names = tname.value.split(":")  // array of names 
+            let total = 0;
+            for(let n of names)
+               total += n.length 
+
+            alert( total / names.length )
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Count Upper</h1>
+    Name : <input type="text"  id="text1" />
+    <button onClick="countUpper()">Count Upper</button>
+    <button onClick="avgLength()">Avg Length</button>
+
+
+
+    
+</body>
+</html>
