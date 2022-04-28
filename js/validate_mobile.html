@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Mobile and PAN</title>
+    <script>
+        function validateData() {
+            var mobile  = document.getElementById("txtMobile")
+            var pan  = document.getElementById("txtPAN")
+            var mob_msg = document.getElementById("mobileMessage") 
+            var pan_msg = document.getElementById("panMessage") 
+
+            mob_msg.innerText = "";
+            pan_msg.innerText = "";
+
+            if (! /^\d{10}$/.test( mobile.value) )
+                mob_msg.innerText = "Invalid Mobile Number!"
+
+            if (! /^[a-zA-Z]{5}\d{4}[a-zA-Z]$/.test( pan.value) )
+                pan_msg.innerText = "Invalid PAN Number!"    
+        }
+    </script>
+</head>
+<body>
+    <h1>Validate Mobile and PAN</h1>
+    Mobile : <input type="text" maxlength="10"  id="txtMobile" />
+     <span id="mobileMessage"></span>
+    <p></p>
+    PAN : <input type="text"  id="txtPAN" />
+    <span id="panMessage"></span>
+    <p></p>
+    <button onClick="validateData()">Validate</button>
+
+    
+</body>
+</html>
