@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Event Demo</title>
+   
+</head>
+<body>
+     
+  <button onclick="cancelTimeout()"> Cancel Timeout</button>
+  <h1 id="time"></h1>
+  <h1 id="r_time"></h1>
+
+  <script>
+    let seconds = 300;
+    let h1_time = document.getElementById('time')
+    let r_time = document.getElementById('r_time')
+    // let id = setTimeout( () => location.assign("http://www.srikanthtechnologies.com"), 5000)
+
+    let tid = setInterval(showTime, 1000)
+    let minid = setInterval(showMins, 1000)
+
+    function cancelTimeout() {
+         clearTimeout(id)
+         console.log("Cancelled!")
+    }
+
+    function showTime(){
+        var cd = new Date() 
+        h1_time.innerHTML = `${cd.getHours()}:${cd.getMinutes()}:${cd.getSeconds()}`
+    }
+  
+    function showMins()
+    {
+       seconds --;
+       if ( seconds > 120)
+         r_time.style.color = 'green';
+
+       r_time.innerHTML =  seconds;
+    }
+
+</script>
+    
+</body>
+</html>

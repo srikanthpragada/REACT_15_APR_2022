@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Demo</title>
+   
+   
+</head>
+<body>
+   <h2>Storage Demo</h2>
+   <input type="text" id="key" placeholder="Key" />
+   <input type="text" id="value" placeholder="Value" />
+   <button onClick="addItem()">Add Item</button>
+   <p></p>
+   <div id="items">
+
+   </div>
+    
+   <script>
+    function addItem() {
+      var key = document.getElementById("key").value 
+      var value = document.getElementById("value").value 
+      localStorage.setItem(key, value)
+      showItems();
+    }
+    
+    function showItems() {
+        let output = ""
+        for (let i = 0; i < localStorage.length; i ++)
+        {
+           let k = localStorage.key(i)
+           let v = localStorage.getItem(k)
+           output += `${k}-${v}<br/>`
+        }
+        document.getElementById("items").innerHTML = output;
+    }
+    showItems();
+  </script>
+
+</body>
+</html>
