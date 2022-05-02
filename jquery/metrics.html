@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        function convert() {
+            let inches = parseInt($("#inches").val())
+            let cm = inches * 2.54
+            let mm = cm * 10;
+            $("#result").text(`CM = ${cm}, MM = ${mm}`)
+        }
+    </script>
+</head>
+<body>
+ <h2>Metrics</h2>
+ Inches : <input type="number" id="inches"/>
+ 
+ <button onclick="convert()">Convert</button>
+
+ <h2 id="result">
+
+ </h2>
+    
+</body>
+</html>
