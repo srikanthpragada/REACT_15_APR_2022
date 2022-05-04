@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"> </script>
+</head>
+<script>
+    // Document ready event 
+    $(() => {
+        $("#text").keypress( 
+             function (e) 
+             {
+                //console.log(e)
+                $("#code").html(e.originalEvent.charCode)
+                // return false;
+             }
+        );
+            
+
+        $("#text").blur(function () {
+            console.log(this);  // DOM object 
+            var jtext = $(this) // DOM to jQuery Object  
+
+            var value = jtext.val()
+            jtext.val(value.toUpperCase());
+        }
+        );
+    }
+    );
+</script>
+
+<body>
+    <h2>Keyboard Events Demo</h2>
+    <input id="text" type="text" autocomplete="off" />
+    <p></p>
+    <input type="text" autocomplete="off" />
+    <h3 id="code"></h3>
+</body>
+
+</html>
