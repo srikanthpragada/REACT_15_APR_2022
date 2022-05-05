@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"> </script>
+    <style>
+        .banner {
+            background-color: blue;
+            color: white;
+            font-size: 3em;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<script>
+
+     function moveBanner() {
+        $("#banner").css ("color", "yellow");
+        $("#banner").slideUp(1000);
+        $("#banner").slideDown(1000);
+     }
+
+     function moveBanner2() {   
+        // Method Chaining
+        $("#banner").css("color", "yellow").slideUp(1000).slideDown(1000);
+     }
+
+</script
+<body>
+    <div id="banner" class="banner">
+        Srikanth Technologies
+    </div>
+    <p></p>
+    <button onclick="moveBanner()">Move</button>
+    <button onclick="moveBanner2()">Move with Chain</button>
+
+
+     
+</body>
+</html>

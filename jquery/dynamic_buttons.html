@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Button</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+
+        function handleButton() {
+            let value = $("#amount").val()
+            $("#amount").val(value + this.innerText);
+        }
+
+        $(
+            function () {
+                // create button and add them to div 
+                for (i = 1; i <= 5; i++) {
+                    var btn = document.createElement("button");
+                    var jbtn = $(btn); // DOM to jQuery object 
+                    jbtn.click(handleButton)
+                    jbtn.text(i)
+                    $("#buttons").append(btn)
+                }
+            }
+        );
+    </script>
+</head>
+
+<body>
+    <h1>Dynamic Buttons</h1>
+    <div id="buttons">
+    </div>
+    <p></p>
+    <input type="text"  id="amount" />
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"> </script>
+</head>
+<script>
+    // Document ready event 
+    $(() => {
+        $("#text").keypress(
+            function (e) {
+                var code = e.originalEvent.charCode;
+                if (code >= 65 && code <= 90 || code >= 97 && code <= 122 || code === 32)
+                    return true;   // allow char
+                else
+                    return false;  // ignore char 
+            } // keypress 
+        );
+      }
+    );
+</script>
+
+<body>
+    <h2>Allow Only Alpha</h2>
+    <input id="text" type="text" autocomplete="off" />
+
+</body>
+
+</html>
