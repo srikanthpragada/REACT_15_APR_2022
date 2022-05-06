@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script>
+        var products = [
+            { name: "Apple iPhone 12", price: 80000 },
+            { name: "Dell XPS Laptop", price: 120000 },
+            { name: "Logitech Mouse", price: 10000 },
+            { name: 'Bose Headphones', price: 24000 }
+        ];
+
+        var cart = [];
+
+        // Document ready event 
+        $(
+            function () {
+                let options = ""
+                for (let item of products) {
+                    options += `<option>${item.name} </option>`
+                }
+                // Add options to dropdown list
+                $("#pname").append(options)
+            }
+        );
+
+        function getPrice(name) {
+            prod = products.find(p => p.name === name)
+            return prod.price
+        }
+
+        function addToCart() {
+            let name = $("#pname").val()
+            let qty = $("#qty").val()
+            // Add item with details to cart 
+            let price = getPrice(name)
+            cart.push({
+                name: name,
+                qty: qty,
+                price: price,
+                amount: qty * price
+            })
+            // Display cart 
+            showCart()
+        }
+
+        function showCart() {
+            if (cart.length === 0) {
+                $("#cart").hide()
+                return;
+            }
+
+            // display data in table
+
+            let items = ""
+            for (let idx in cart) {
+                item = cart[idx]
+                items += `<tr><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td>` +
+                    `<td>${item.amount}</td><td><button onclick='deleteItem(${idx})'>Delete</button></td></tr>`
+            }
+
+            $("#cartItems").html(items)
+            $("#cart").show()
+        }
+
+        function deleteItem(idx) {
+            cart.splice(idx, 1)
+            showCart()
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Shopping Cart</h1>
+
+    Product :
+    <select id="pname">
+    </select>
+
+    Qty : <input type="number" id="qty" value="1" style="width:100px" />
+
+    <button onClick="addToCart()">Add </button>
+    <p></p>
+    <div id="cart" style="display:none">
+        <table style="width:100%" border="1">
+            <thead>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th></th>
+            </thead>
+            <tbody id="cartItems">
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
