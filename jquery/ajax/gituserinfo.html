@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github User Info</title>
+    <script src="../../jquery-3.6.0.min.js"></script>
+    <script>
+        function getDetails() {
+            let userid = $("#userid").val() 
+            $.get(`https://api.github.com/users/${userid}`, 
+                  showDetails)
+        }
+
+        function showDetails(resp) {
+             let output = `<h2>${resp.name}</h2>` + 
+                          `<h3>${resp.company}</h3>` + 
+                          `<h3>${resp.public_repos}`;
+             $("#details").html(output)                            
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Github User Info</h1>
+    Userid <input type="text" id="userid" value="srikanthpragada" />
+    <button onClick="getDetails()">Get Details</button>
+
+    <p></p>
+    <div id="details">
+
+    </div>
+</body>
+</html>
