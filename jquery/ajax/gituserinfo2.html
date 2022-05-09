@@ -14,8 +14,14 @@
     <script>
         function getDetails() {
             let userid = $("#userid").val()
-            $.get(`https://api.github.com/users/${userid}`,
-                showDetails)
+            $.ajax(
+               {
+                 type : 'get',
+                 url : `https://api.github.com/users/${userid}`,
+                 success : showDetails, 
+                 error : showError
+               } 
+            )
         }
 
         function showDetails(resp) {
@@ -24,6 +30,12 @@
                 `<h3>${resp.public_repos}`;
             $("#photo").attr("src", resp.avatar_url);                
             $("#details").html(output)
+            $("#details_div").show() 
+        }
+
+        function showError() {
+            $("#details_div").hide() 
+            alert("Sorry! Userid not found!")
         }
     </script>
 
@@ -35,14 +47,14 @@
         Userid <input type="text" id="userid" value="srikanthpragada" />
         <button onClick="getDetails()">Get Details</button>
         <p></p>
-        <div class="row">
+        <div class="row" id="details_div"  style="display:none">
             <div id="details" class="col-sm-6">
             </div>
             <div class="col-sm-6">
                 <img id="photo" class="img-responsive" style="width:200px;height:200px" />
             </div>
         </div>
-
+      
     </div>
 
 </body>
