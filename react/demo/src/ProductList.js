@@ -20,7 +20,6 @@ export default function ProductList() {
     )
 }
 
-
 function ShowProduct(props) {
     return (
         <div className="bg-info mb-3">
@@ -29,9 +28,7 @@ function ShowProduct(props) {
             <h4>{props.price * 1.12}</h4>
         </div>
     )
-
 }
-
 
 ShowProduct.propTypes = {
     name: PropTypes.string.isRequired,
