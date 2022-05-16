@@ -5,6 +5,7 @@ export default function Interest() {
     const [data, setData] = useState({ amount: 0, rate: 10 , result : 0 })
 
     function changeAmount(e) {
+        // console.log(e)
         let value = e.target.value;
         setData({ ...data,  amount: value })
         console.log(data)
