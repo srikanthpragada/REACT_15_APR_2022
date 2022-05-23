@@ -1,0 +1,8 @@
+{
+    "contacts":
+     [
+      { "id": 1, "name": "Jason Hunter", "email": "jason@gmail.com" },
+      { "id": 2, "name": "Bob Tabour", "email": "bob@microsoft.com" },
+      { "id": 3, "name": "Scott Guthrie", "email": "scott@microsoft.com" }
+    ]
+}
