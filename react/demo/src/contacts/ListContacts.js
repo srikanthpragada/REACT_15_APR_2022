@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { CONTACTS_URL } from './constants'
 import $ from 'jquery'
+import { useNavigate } from "react-router-dom";
 
 
 export default function ListContacts() {
     const [contacts, setContacts] = useState([])
+    let navigate = useNavigate();
 
     useEffect(function () {
         getContacts();
@@ -20,8 +22,7 @@ export default function ListContacts() {
     }
 
     function removeContact(id) {
-       // remove contact object with given id from contacts array 
-
+       setContacts(contacts.filter(c => c.id !== id))
     }
 
     function deleteContact(id) {
@@ -32,8 +33,8 @@ export default function ListContacts() {
                 method: 'delete',
                 success: function () {
                     alert("Contact deleted successfully!")
-                    getContacts();
-                    // removeContact(id)
+                    //getContacts();
+                    removeContact(id)
                 },
                 error: function (error) {
                     console.log(error)
@@ -42,6 +43,10 @@ export default function ListContacts() {
             }
         )
 
+    }
+
+    function editContact(id) {
+        navigate(`/edit/${id}`)
     }
     
     return (
@@ -67,6 +72,8 @@ export default function ListContacts() {
                                     style={{ width: '20%' }}>
                                     <button onClick={() => deleteContact(contact.id)}
                                         className="btn btn-danger">Delete</button>
+                                    <button onClick={() => editContact(contact.id)}
+                                        className="btn btn-info">Edit</button>    
                                 </td>
                             </tr>
                         )

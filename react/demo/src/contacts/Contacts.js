@@ -2,6 +2,7 @@ import React from "react";
 import ListContacts  from "./ListContacts";
 import AddContact  from "./AddContact";
 import SearchContacts  from "./SearchContacts";
+import UpdateContact from "./UpdateContact";
 
 import {
     BrowserRouter,
@@ -21,6 +22,7 @@ export default function Contacts() {
                     {/* child components */}
                     <Route path="list" element={<ListContacts />} />
                     <Route path="add" element={<AddContact />} />
+                    <Route path="edit/:contactId" element={<UpdateContact />} />
                     <Route path="search" element={<SearchContacts />} />
                   
                 </Route>
